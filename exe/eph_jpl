@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require "eph_jpl"
+
+# e.g. `bundle exec exe/eph_jpl ~/src/ephemeris_jpl/JPLEPH 11 3 2457465.5`  # 2016-03-18
+o = EphJpl.new(*ARGV)
+str =  "TARGET = #{o.target} (#{o.target_name})\n"
+str << "CENTER = #{o.center} (#{o.center_name})\n"
+str << "    JD = #{o.jd}\n"
+str << "  UNIT = #{o.unit}"
+puts str
+#p o.bin
+p o.calc
+
