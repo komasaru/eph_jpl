@@ -19,7 +19,7 @@ Please refer the following links about DE datas.
 
 To understand this library's in-depth specification, you need to comprehend contents of the following link well.
 
-* [testeph.f - JPL](ftp://ssd.jpl.nasa.gov/pub/eph/planets/fortran/testeph.f)
+* [ftp://ssd.jpl.nasa.gov/pub/eph/planets/fortran/testeph.f](ftp://ssd.jpl.nasa.gov/pub/eph/planets/fortran/testeph.f)
 
 ### Supported DE Ver.
 
