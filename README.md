@@ -75,6 +75,12 @@ p obj.bin          #=> Acquired data from binary file (Hash)
 p obj.calc         #=> [x, y, z-position, x, y, z-velocity]
 ```
 
+About binary file.
+
+1. Please get the binary file for DE430 from [ftp://ssd.jpl.nasa.gov/pub/eph/planets/Linux/de430/testpo.430].
+2. Please put "testpo.430" into a proper directory.
+3. Please rename as needed.
+
 About arguments for target and center astronomical bodies.
 
 * You can set a integer betweetn 1 and 15 as a target astronomical body.
