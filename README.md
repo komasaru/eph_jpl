@@ -74,6 +74,11 @@ p obj.unit         #=> UNIT of positions and velocities (String)
 p obj.bin          #=> Acquired data from binary file (Hash)
 p obj.calc         #=> [x, y, z-position, x, y, z-velocity]
 ```
+About binary file.
+
+1. Please get the binary file for DE430 from [ftp://ssd.jpl.nasa.gov/pub/eph/planets/Linux/de430/linux_p1550p2650.430].
+2. Please put "linux_p1550p2650.430" into a proper directory.
+3. Please rename as needed.
 
 About arguments for target and center astronomical bodies.
 
