@@ -77,7 +77,7 @@ p obj.calc         #=> [x, y, z-position, x, y, z-velocity]
 
 About binary file.
 
-1. Please get the binary file for DE430 from [ftp://ssd.jpl.nasa.gov/pub/eph/planets/Linux/de430/testpo.430].
+1. Please get the binary file for DE430 from [ftp://ssd.jpl.nasa.gov/pub/eph/planets/Linux/de430/linux_p1550p2650.430].
 2. Please put "testpo.430" into a proper directory.
 3. Please rename as needed.
 
