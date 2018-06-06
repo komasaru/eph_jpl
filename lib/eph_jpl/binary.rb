@@ -7,17 +7,18 @@ module EphJpl
 
     def get_binary
       begin
-        ttl    = get_ttl          # TTL
-        cnams  = get_cnams        # CNAM
-        sss    = get_sss          # SS
-        ncon   = get_ncon         # NCON
-        au     = get_au           # AU
-        emrat  = get_emrat        # EMRAT
-        ipts   = get_ipts         # IPT
-        numde  = get_numde        # NUMDE
-        ipts  << get_ipts_13      # IPT(Month's libration)
-        cvals  = get_cvals(ncon)  # CVAL（定数値）
-        jdepoc = cvals[4]         # JDEPOC
+        ttl    = get_ttl            # TTL
+        cnams  = get_cnams          # CNAM
+        sss    = get_sss            # SS
+        ncon   = get_ncon           # NCON
+        au     = get_au             # AU
+        emrat  = get_emrat          # EMRAT
+        ipts   = get_ipts           # IPT
+        numde  = get_numde          # NUMDE
+        ipts  << get_ipts_13        # IPT(Month's libration)
+        cnams += get_cnams_2(ncon)  # CNAM(>400)
+        cvals  = get_cvals(ncon)    # CVAL（定数値）
+        jdepoc = cvals[4]           # JDEPOC
         coeffs, jds_cheb = get_coeffs(sss, ipts)  # Coefficient, JDs(for Chebyshev polynomial)
         return {
           ttl: ttl, cnams: cnams, sss: sss, ncon: ncon, au: au, emrat: emrat,
@@ -204,6 +205,26 @@ module EphJpl
         end
         @pos += recl * 3
         return ipts
+      rescue => e
+        raise
+      end
+    end
+
+    #=========================================================================
+    # CNAM
+    #
+    # @param:  NCON
+    # @return: Array of CNAM
+    #=========================================================================
+    def get_cnams_2(ncon)
+      recl = 6
+
+      begin
+        cnams = (0..(ncon - 400 - 1)).map do |i|
+          File.binread(@bin_path, recl, @pos + recl * i).unpack("A*")[0]
+        end
+        @pos += recl * (ncon - 400)
+        return cnams
       rescue => e
         raise
       end
